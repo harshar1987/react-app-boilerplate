@@ -1,0 +1,9 @@
+
+
+# Ignore linting errors on bundled output files
+dist/*
+
+#Ignore linting erros in service worker 
+src/registerServiceWorker.js
+
+

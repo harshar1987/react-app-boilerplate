@@ -1,0 +1,11 @@
+{
+	"files.autoSave": "afterDelay",
+	"files.autoSaveDelay": 1000,
+
+	"window.zoomLevel": 1,
+	"tfvc.location": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\TF.exe",
+	"git.autofetch": true,
+	"eslint.options": {
+		"configFile": "./.eslintrc.json"
+	}
+}

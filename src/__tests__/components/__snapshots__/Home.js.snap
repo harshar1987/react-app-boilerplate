@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Cards Home component matches the home component snapshot 1`] = `
+<div>
+  <Header
+    title="Movie Cards"
+  />
+  <div
+    className="mt-5"
+  >
+    <Movies />
+  </div>
+</div>
+`;
+
+exports[`Movie Cards Home component matches the home component with the provided title 1`] = `
+<div>
+  <Header
+    title="Custom Title"
+  />
+  <div
+    className="mt-5"
+  >
+    <Movies />
+  </div>
+</div>
+`;

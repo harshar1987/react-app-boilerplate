@@ -9,7 +9,6 @@ You can find the most recent version of this guide [here](https://github.com/fac
 - [Getting started with boilerplate](#getting-started-with-boilerplate)
 - [Updating to New Releases](#updating-to-new-releases)
 - [Sending Feedback](#sending-feedback)
-- [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
@@ -156,7 +155,7 @@ It’s important to understand the react basics before delving deeper into the c
 
 * `jest unit tests` - Sample unit test are present under `src/__tests__` folder. The `src/__setup` folder contains the jest configuration file where some of the globals and steps need be run before all tests are defined and the `__mocks__` folder contains the mock for the node modules. Each mocks you create for the modules should be created adjacent to the module under `__mocks__` folder (setup & teardown).
 
-* `Internalization` - This boilerplate includes the internalization integration as well. The movie app displays the header title, movie genre and plot in the locale language. The localization is added only for english and norwegian for demonstration purpose and more languages can be added as per the need.
+* `Internationalization` - This boilerplate includes the internationalization integration as well. The movie app displays the header title, movie genre and plot in the locale language. The localization is added only for english and norwegian for demonstration purpose and more languages can be added as per the need.
 
 ## Getting started with boilerplate
 

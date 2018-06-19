@@ -1,4 +1,4 @@
-import movies from "./movies";
+import movies from "./movies.json";
 
 export class MovieService {
     static getMovies() {

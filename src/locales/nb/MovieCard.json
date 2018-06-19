@@ -1,0 +1,17 @@
+{
+    "Plot": "Plott",
+    "Genre": {
+        "Action": "Action",
+        "Comedy": "Komedie",
+        "Crime": "Forbrytelse",
+        "Drama": "Drama",
+        "Romance": "Romanse"
+    },
+    "Description": {
+        "The Dark Night": "Når tilsynelatende opposisjonelle medlemmer av samfunnet blir offentlig ydmyket av en mystisk mann, søker Detectives Carter og Lee etter noen som målretter mot sterke mennesker med noe å skjule.",
+        "Pulp Fiction": "Jules Winnfield (Samuel L. Jackson) og Vincent Vega (John Travolta) er to hit menn som er ute for å hente en koffert stjålet fra sin arbeidsgiver, mobboss Marsellus Wallace (Ving Rhames). Wallace har også bedt Vincent om å ta sin kone Mia (Uma Thurman) ut noen dager senere når Wallace selv vil være ute av byen. Butch Coolidge (Bruce Willis) er en aldrende bokser",
+        "Titanic": "84 år senere forteller en 100 år gammel kvinne ved navn Rose DeWitt Bukater historien til sitt barnebarn Lizzy Calvert, Brock Lovett, Lewis Bodine, Bobby Buell og Anatoly Mikailavich på Keldysh om livet sitt i 10. april 1912 på et skip som heter Titanic når ung Rose styrer avgangshavet med overklasse passasjerer og hennes mor, Ruth DeWitt Bukater, og henne",
+        "The Godfather":"Når den kjente kriminellefamiliens aldrende hode bestemmer seg for å overføre sin stilling til en av sine subalterns, begynner en rekke uheldige hendelser med familien, og en krig begynner mellom alle kjente familier som fører til ulykke, deportasjon, mord og hevn, og slutter med den gunstige etterfølgeren blir endelig valgt.",
+        "Fight Club": "En navnløs førstepersons forteller (Edward Norton) deltar støttegrupper i forsøk på å undertrykke sin emosjonelle tilstand og lindre sin dårlige tilstand. Når han møter Marla (Helena Bonham Carter), en annen falsk deltager av støttegrupper, ser han ut til å bli litt mer utholdelig. Men når han knytter seg til Tyler (Brad Pitt), blir han trukket inn i en underjordisk kampklubb og såpeprogram. Sammen spirer de to mennene ut av kontroll og engasjerer seg i konkurransedyktig rivalisering for kjærlighet og makt. Når fortelleren er utsatt for den skjulte agendaen til Tylers kampklubb, må han akseptere den forferdelige sannheten at Tyler ikke kan være som han sier han er."
+    } 
+}

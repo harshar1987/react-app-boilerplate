@@ -10,8 +10,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 /* eslint-disable no-unused-vars */
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-
 const bundleOutputDir = "./dist";
+
 module.exports = (env) => {
 
     const devMode = !(env && env.prod);
@@ -19,7 +19,7 @@ module.exports = (env) => {
         {
             stats: { modules: false },
             entry: {
-                "bundle": ["babel-polyfill", "./src/App.jsx"]
+                "bundle": ["babel-polyfill", "./src/index.js"]
             },
             performance: {
                 hints: false
@@ -68,11 +68,6 @@ module.exports = (env) => {
                             {
                                 test: /\.(png|jpg|jpeg|gif|svg)$/,
                                 use: "url-loader?limit=25000",
-                                exclude: /node_modules/
-                            },
-                            {
-                                test: /\.svg$/,
-                                loader: "url-loader",
                                 exclude: /node_modules/
                             }
                         ]
@@ -133,6 +128,13 @@ module.exports = (env) => {
                             to: "./images"
                         }
                     ]),
+                    new CopyWebpackPlugin([
+                        {
+                            context: "./src/locales",
+                            from: "**/*",
+                            to: "./locales"
+                        }
+                    ]),
                     new MiniCssExtractPlugin({
                         filename: devMode ? "[name].css" : "[name].[hash].css",
                         chunkFilename: devMode ? "[id].css" : "[id].[hash].css",
@@ -148,8 +150,9 @@ module.exports = (env) => {
             devtool: "cheap-module-eval-source-map",
             devServer:
                 {
-                    contentBase: path.resolve(__dirname, "dist"),
+                    contentBase: "./",
                     compress: true,
+                    historyApiFallback: true,
                     port: 9000
                 }
         }];

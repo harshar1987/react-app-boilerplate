@@ -2,7 +2,7 @@
 
 exports[`Movie Cards Home component matches the home component snapshot 1`] = `
 <div>
-  <Header
+  <WrappedComponent
     title="Movie Cards"
   />
   <div
@@ -15,7 +15,7 @@ exports[`Movie Cards Home component matches the home component snapshot 1`] = `
 
 exports[`Movie Cards Home component matches the home component with the provided title 1`] = `
 <div>
-  <Header
+  <WrappedComponent
     title="Custom Title"
   />
   <div

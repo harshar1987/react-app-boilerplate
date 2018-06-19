@@ -1,10 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Below you will find some information on how to perform common tasks.<br>
+Below you will find some information on how to get started with this boilerplate and how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Table of Contents
-
+- [Before getting started](#before-getting-started)
+- [What boilerplate provides](#what-boilerplate-provides)
+- [Getting started with boilerplate](#getting-started-with-boilerplate)
 - [Updating to New Releases](#updating-to-new-releases)
 - [Sending Feedback](#sending-feedback)
 - [Folder Structure](#folder-structure)
@@ -103,63 +105,85 @@ You can find the most recent version of this guide [here](https://github.com/fac
 - [Alternatives to Ejecting](#alternatives-to-ejecting)
 - [Something Missing?](#something-missing)
 
-## Updating to New Releases
+## Before getting started
 
-Create React App is divided into two packages:
+It’s important to understand the react basics before delving deeper into the code. 
 
-* `create-react-app` is a global command-line utility that you use to create new projects.
-* `react-scripts` is a development dependency in the generated projects (including this one).
+* `React` [ReactJS](https://reactjs.org/docs/hello-world.html )   documentation should be a good starting point. Going through the quick start should be good enough to begin with. However, if you are unable to spend much time in reading perhaps this short [Pluralsight course](https://www.pluralsight.com/courses/react-practical-start) should give you good heads up.
 
-You almost never need to update `create-react-app` itself: it delegates all the setup to `react-scripts`.
+* `Unit Testing` [Jest documentation](https://facebook.github.io/jest/docs/en/tutorial-react.html) and the available [code samples on github](https://github.com/facebook/jest/tree/master/examples) should be good enoughto start using jest. In addition, [Enzyme](https://github.com/airbnb/enzyme) provides a rich library that makes writing unit tests using jest simpler. If you do not choose to use enzyme then have a look at react [test utilities](https://reactjs.org/docs/test-utils.html), [deep rendering](https://reactjs.org/docs/test-renderer.html) and [shallow rendering](https://reactjs.org/docs/shallow-renderer.html).
 
-When you run `create-react-app`, it always creates the project with the latest version of `react-scripts` so you’ll get all the new features and improvements in newly created apps automatically.
+## What boilerplate provides
 
-To update an existing project to a new version of `react-scripts`, [open the changelog](https://github.com/facebookincubator/create-react-app/blob/master/CHANGELOG.md), find the version you’re currently on (check `package.json` in this folder if you’re not sure), and apply the migration instructions for the newer versions.
+* `linting` - ESLint configuration are defined in .eslintrc.json and the .eslintignore file provides files that should be ignored by ESLint (like files produced in output and service worker).
+  * [EsLint rules set](https://eslint.org/docs/rules/)
+  * [EsLint react rules set](https://www.npmjs.com/package/eslint-plugin-react)
 
-In most cases bumping the `react-scripts` version in `package.json` and running `npm install` in this folder should be enough, but it’s good to consult the [changelog](https://github.com/facebookincubator/create-react-app/blob/master/CHANGELOG.md) for potential breaking changes.
+* `babel transpilation and polyfilling` - For transpiling JSX and ES6 to browser understandable Javascript. The configuration file for babel is .babelrc.  Webpack is configured to transpile JS/JSX to plain Javascript and webpack entry point has been setup with polyfilling to be able to run newer Javascript code in an older browser.
 
-We commit to keeping the breaking changes minimal so you can upgrade `react-scripts` painlessly.
+* `package.json` - This file has been setup with NPM scripts to run webpack, jest, linting using ESLint and some configuration required by Jest and all the necessary dev-dependencies to do the job.
 
-## Sending Feedback
+* `editorconfig` - To maintain consistent coding style between different editors and IDE.
 
-We are always open to [your feedback](https://github.com/facebookincubator/create-react-app/issues).
+* `launch.json` - Launch configurations to launch chrome debugging (Works only if chrome debugger extension is installed in VS Code) and Settings specific to VS Code editor.
 
-## Folder Structure
+* `webpack.config.js` - Webpack configuration file. This has all the necessary configurations required to be done in webpack. This includes following
+  * `Loaders` - Loaders in webpack are node based utilities built for webpack to help webpack to compile or transform a specific type of resource that can be bundled as Javascript module. The loaders used in this boilerplate are as below
+    * [eslint-loader](https://github.com/webpack-contrib/eslint-loader) 
+    * [babel-loader](https://github.com/babel/babel-loader)
+    * [css-loader](https://github.com/webpack-contrib/css-loader)
+    * [url-loader](https://github.com/webpack-contrib/url-loader)
 
-After creation, your project should look like this:
+  * `Plugins` - Webpack provides some default behaviors to many resources. When this is not sufficient we can use plugins to modify or add capabilities to Webpack. Some of the [Webpack plugins](https://webpack.js.org/plugins/) used in boilerplate are as below
 
-```
-my-app/
-  README.md
-  node_modules/
-  package.json
-  public/
-    index.html
-    favicon.ico
-  src/
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
-```
+    * `UglifyPlugin` - Javascript minifier written in Javascript
 
-For the project to build, **these files must exist with exact filenames**:
+    * `OptimizePlugin` - Minify CSS during webpack build
 
-* `public/index.html` is the page template;
-* `src/index.js` is the JavaScript entry point.
+    * `CleanWebpackPlugin` - Cleans up the output directory before creating bundle
 
-You can delete or rename the other files.
+    * `HtmlWebpackPlugin` - This plugin generates HTML file during bundling or we can provide HTML template to use and adds all the webpack bundle in script tags in body.
 
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
-You need to **put any JS and CSS files inside `src`**, otherwise Webpack won’t see them.
+    * `CopyWebpackPlugin` - Copy individual files or entire directory to output directory.
 
-Only files inside `public` can be used from `public/index.html`.<br>
-Read instructions below for using assets from JavaScript and HTML.
+    * `MiniCssExtractPlugin` - Extract Css to separate file
 
-You can, however, create more top-level directories.<br>
-They will not be included in the production build so you can use them for things like documentation.
+    * `BundleAnalyzerPlugin` - Helps in analyzing size of the bundle
+
+    This [article](https://css-tricks.com/introduction-webpack-entry-output-loaders-plugins/) provides a good basic understanding of the webpack configuration file.
+
+* `react code samples`- All components are defined under “src/components” directory. index.js will be the entry point and its present under “src” directory. It has a simple app that gets the movies information from a json file and displays the movie cards. Each card has `More Info` button for routing to show each movie details in a simple div grid. It should be sufficient to get started in creating react components. 
+
+* `jest unit tests` - Sample unit test are present under `src/__tests__` folder. The `src/__setup` folder contains the jest configuration file where some of the globals and steps need be run before all tests are defined and the `__mocks__` folder contains the mock for the node modules. Each mocks you create for the modules should be created adjacent to the module under `__mocks__` folder (setup & teardown).
+
+* `Internalization` - This boilerplate includes the internalization integration as well. The movie app displays the header title, movie genre and plot in the locale language. The localization is added only for english and norwegian for demonstration purpose and more languages can be added as per the need.
+
+## Getting started with boilerplate
+
+* Install [Node JS]()
+
+* Install [Visual Studio Code]() - This is my preferred editor and you are free to use any editor of your choice and this is not necessary. If you are using VS code then install below extensions as well.
+  * `Debugger for chrome` – For debugging react and Javascript code
+
+  * `ESLint` – Integrates linting in to VS Code IDE thus showing the rules enforced as errors/warning in the editor.
+
+  * `Visual Studio Team Service` - This is required if you are using 
+  TFVC and Git to be able to commit and push changes from VS Code.
+
+  * `C# for VS Code` - If you want to write and debug C# code. May be required if you are using asp.net core with react.
+
+* Clone the repository to a local file system
+
+* Open the cloned code in VS Code. For example, if you have cloned the code to a directory called `react-app-boilerplate` in your local file system then you can navigate to this directory, open the command prompt and type `code .` OR you can just open the VS Code first and then open the `react-app-boilerplate` folder
+
+* Once the project is opened you can open the terminal window. Use CTRL + ` as shortcut or open from View -> Command Palette -> Toggle integrated terminal
+
+* Run `npm install` and it would download and install all the dependency packages under `node_modules`
+
+* Run `npm start` and this would start the webpack development server and launch the app.
+
+* Install [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) chrome extension. This gives you the ability to inspect the react code of any app built using react. For example you can have a look at [Airbnb](https://www.airbnb.co.in/), [Khan Academy](https://www.khanacademy.org/), [Whatsapp Web](https://web.whatsapp.com/). Here is a list of [many sites](https://github.com/facebook/react/wiki/Sites-Using-React) built with react.
+
 
 ## Available Scripts
 
@@ -168,12 +192,12 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+and launch the app at [http://localhost:9000](http://localhost:9000). 
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+### `npm test` or `npm run test:watch`
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](#running-tests) for more information.

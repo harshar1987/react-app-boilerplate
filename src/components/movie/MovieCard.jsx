@@ -2,28 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StarRating } from "./StarRating";
 import MovieCardStyles from "../../styles/components/movie/movieCard.css";
-import { MovieInfo } from "./MovieInfo";
+import MovieInfo from "./MovieInfo";
 import { MovieCardClassNames } from "./styles/MovieCard-Style";
+import {WithTranslation} from "si-react-localize";
 
-export const MovieCard = (props) => {
-
+const MovieCard = (props) => {
     const rating = Number(props.movie.rating);
-    
     const cardDescriptionStyle = {
         fontSize: "14px",
         overflow: "hidden",
         height: "200px",
         textOverflow: "ellipsis"
     };
-    
+
     return <div className={MovieCardStyles.movieCard}>
         <div className={MovieCardStyles.movieCard} style={{ height: "450px" }}>
             <div style={{ padding: "1.25rem" }}><img className={MovieCardClassNames.cardImgTop} src={props.movie.poster} alt="" style={{ height: "400px" }} /></div>
             <div className={MovieCardClassNames.cardBody}>
                 <h4 className={MovieCardClassNames.cardTitle}>{props.movie.title} ({props.movie.year})</h4>
-                <h6 className={MovieCardClassNames.cardSubTitle}>{props.movie.genre}</h6>
+                <h6 className={MovieCardClassNames.cardSubTitle}>
+                    {
+                        props.movie.genre.split(",").map(cat => props.localize(`Genre.${cat.trim()}`))
+                            .reduce((prev, curr) => [prev, ", ", curr])
+                    }
+                </h6>
                 <p className={MovieCardClassNames.cardDescription} style={cardDescriptionStyle}>
-                    <b>Plot:</b> {props.movie.plot}
+                    <b>{props.localize("Plot")}:</b> {props.localize(`Description.${props.movie.title.trim()}`)}
                 </p>
             </div>
             <div className={MovieCardClassNames.cardFooter}>
@@ -46,3 +50,5 @@ MovieCard.defaultProps = {
 MovieCard.propTypes = {
     movie: PropTypes.object
 };
+
+export default WithTranslation("MovieCard")(MovieCard);

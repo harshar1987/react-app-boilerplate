@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect} from "react-router-dom";
 import MovieInfoStyles from "../../styles/components/movie/movieInfo.css";
 
-export class MovieInfo extends Component {
+
+class MovieInfo extends Component {
     constructor(props) {
         super(props);
 
@@ -37,4 +38,6 @@ export class MovieInfo extends Component {
         return this.renderButton();
     }
 }
+
+export default MovieInfo;
 

@@ -1,6 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {MovieCard} from "./MovieCard";
+import MovieCard from "./MovieCard";
+// import {WithTranslation} from "si-react-localize";
+
+// const LocalizedComponent = (props) => {
+//     const Card = WithTranslation({ ns: "MovieCard", ...props })(MovieCard);
+//     return <Card />;
+// };
 
 const getMovies = (movies) => {
     return (
